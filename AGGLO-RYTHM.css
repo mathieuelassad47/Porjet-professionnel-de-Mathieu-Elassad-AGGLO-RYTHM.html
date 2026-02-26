@@ -1,0 +1,170 @@
+/* --- CONFIGURATION FUSIONNÉE : DDJ-REV5 AGENT CULTUREL AGEN --- */
+:root {
+    --sua-blue: #004a99;
+    --sua-white: #FFFFFF;
+    --fetes-blue: #0055A4;
+    --fetes-turquoise: #00CED1;
+    --pruneau-purple: #6a0dad;
+    --neon-pruneau: #bc13fe;
+    --bg-dark: #000000;
+    --main-glow: var(--fetes-turquoise); 
+}
+
+body {
+    background: radial-gradient(circle at center, #1a1a1a 0%, var(--bg-dark) 100%);
+    color: var(--sua-white);
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+/* --- Animation Pulsation Rythmique (Structure) --- */
+@keyframes rhythmic-pulse {
+    0% { box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 20px var(--main-glow); }
+    50% { box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 40px var(--main-glow); }
+    100% { box-shadow: 0 0 50px rgba(0, 0, 0, 1), 0 0 20px var(--main-glow); }
+}
+
+.main-container {
+    width: 95%;
+    max-width: 480px;
+    background: #080808;
+    border: 3px solid #222;
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    animation: rhythmic-pulse 2s infinite ease-in-out;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+/* --- L'EN-TÊTE --- */
+.interface-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(90deg, var(--sua-blue), var(--pruneau-purple)) 1;
+}
+
+.status-light {
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--fetes-turquoise);
+    box-shadow: 0 0 12px var(--fetes-turquoise);
+}
+
+.mode-indicator {
+    display: flex;
+    gap: 8px;
+}
+
+.light {
+    padding: 3px 10px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+.light.evenement { 
+    background: var(--sua-white); 
+    color: var(--sua-blue); 
+    box-shadow: 0 0 10px white;
+}
+
+.light.festival { 
+    background: var(--pruneau-purple); 
+    color: white; 
+}
+
+/* --- Écran OLED Immersif --- */
+#main-screen {
+    background: #020202;
+    border: 2px solid #1a1a1a;
+    border-radius: 10px;
+    padding: 15px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+#service-title {
+    background: linear-gradient(90deg, var(--sua-white), var(--fetes-turquoise));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.visual-frame img {
+    width: 100%;
+    height: 180px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    margin: 10px 0;
+    object-fit: cover;
+}
+
+.description-sub { font-size: 0.8rem; color: #bbb; line-height: 1.4; min-height: 3.2em; }
+
+/* --- Barre de Progression Optimisée (Timer 20min) --- */
+.bar-label { font-size: 10px; color: #666; margin-top: 15px; margin-bottom: 5px; text-transform: uppercase; }
+
+.waveform-container {
+    background: #111;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #333;
+    position: relative;
+}
+
+#waveform-progress {
+    height: 100%;
+    width: 0%; /* Piloté par le JS */
+    background: linear-gradient(90deg, var(--sua-blue) 0%, var(--pruneau-purple) 100%);
+    box-shadow: 0 0 15px var(--sua-blue);
+    transition: width 1s linear; /* Mouvement fluide pour le timer */
+    border-radius: 5px;
+}
+
+/* --- Contrôles & Boutons --- */
+.controls { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+.navigation-pad, .action-buttons { display: flex; gap: 10px; }
+
+.btn {
+    flex: 1; padding: 15px; font-weight: bold; text-transform: uppercase;
+    cursor: pointer; border: none; border-radius: 4px; transition: 0.2s; font-size: 0.8rem;
+}
+
+.btn:active { transform: translateY(2px); filter: brightness(1.2); }
+
+.btn.nav { background: #111; color: var(--fetes-turquoise); border: 1px solid var(--fetes-turquoise); }
+.btn.master { background: var(--sua-white); color: var(--sua-blue); }
+
+.info-btn { background: var(--pruneau-purple); color: white; border: 1px solid var(--neon-pruneau); }
+
+.reservation-btn { 
+    background: var(--sua-white); color: var(--sua-blue); 
+    animation: neon-pulse 2s infinite; 
+}
+
+@keyframes neon-pulse {
+    0%, 100% { box-shadow: 0 0 5px var(--sua-blue); }
+    50% { box-shadow: 0 0 15px var(--sua-blue); }
+}
+
+/* --- Finitions Hardware --- */
+.speaker-area { text-align: center; margin-top: 25px; border-top: 1px solid #222; padding-top: 15px; }
+.grille span { display: inline-block; width: 40px; height: 4px; background: #333; margin: 0 4px; border-radius: 2px; }
+.sound-label { font-size: 9px; color: #555; margin-top: 10px; letter-spacing: 2px; text-transform: uppercase; }
