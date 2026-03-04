@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AGGLO-RYTHM | L'application aux rythmes d'Agen</title>
+    
+    <link rel="manifest" href="AGGLO-RYTHM.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="theme-color" content="#004a99">
+
+    <link rel="stylesheet" href="AGGLO-RYTHM.css">
+</head>
+<body>
+
+    <div class="main-container">
+         
+        <header class="interface-header">
+            <div class="status-light"></div>
+            <div class="mode-indicator">
+                <div class="light evenement"> HISTOIRE </div>
+                <div class="light festival"> EVENEMENT </div>
+                <div class="light festival"> COMMERCE </div>
+            </div>
+        </header>
+
+        <section id="main-screen">
+            <div id="content-display" class="screen-content">
+                <h2 id="service-title"> </h2>
+                
+                <div class="visual-frame">
+                    <img id="main-image" src="" alt="Chargement vue Agen...">
+                </div> 
+                
+                <div id="service-info">
+                    <p class="description-text"> 
+                        <strong>Une Histoire, Une Ville, une Ambiance !</strong> 
+                    </p>
+                    <p class="description-sub"></p>
+                </div>
+
+                <div class="master-controls">
+                    <div class="audio-progress">
+                        <div class="bar-label">Ambiance sensorielle auditive visuelle</div>
+                        <div class="waveform-container">
+                            <div id="waveform-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <nav class="controls">
+            <div class="navigation-pad">
+                <button class="btn nav" id="deck-prev">PRÉC.</button>
+                <button class="btn master" id="master-play">PLAY / PAUSE</button>
+                <button class="btn nav" id="deck-next">SUIV.</button>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn info-btn">CULTURE</button>
+                <button class="btn reservation-btn">TARIF</button>
+            </div>
+        </nav>
+
+        <footer class="speaker-area">
+            <div class="grille">
+                <span></span><span></span><span></span><span></span>
+            </div>
+            <p class="sound-label">&copy; 2026 AGGLO-RYTHM BY MATT DIZAIR - TOUS DROITS RÉSERVÉS</p>
+        </footer>
+
+    </div>
+
+    <script src="AGGLO-RYTHM.js"></script>
+</body>
+</html>
+}
